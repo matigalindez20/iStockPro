@@ -333,6 +333,10 @@ section h2 {
     font-size: 0.95em;
 }
 
+.pollo-perfil{
+    width: 100%;
+}
+
 /* Pricing */
 .pricing-grid {
     display: grid;
