@@ -333,9 +333,6 @@ section h2 {
     font-size: 0.95em;
 }
 
-.pollo-perfil{
-    width: 100%;
-}
 
 /* Pricing */
 .pricing-grid {
@@ -417,7 +414,10 @@ section h2 {
     padding: 80px 0;
 }
 #contact.bg-primary-gradient {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
+    background-image: url(./Diseño\ sin\ título\ \(12\).png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: white;
 }
 #contact h2 {
