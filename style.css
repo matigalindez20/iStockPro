@@ -300,6 +300,14 @@ section h2 {
 }
 
 /* About Us */
+#about-us{
+    background-image: url(./Diseño\ sin\ título\ \(19\).png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}    
+
+
 #about-us .team-intro {
     max-width: 750px;
     margin-left: auto;
@@ -408,6 +416,117 @@ section h2 {
     color: var(--light-text-color);
     font-size: 0.9em;
 }
+
+/* ========= ESTILOS FORMULARIO DE CONTACTO ========= */
+.contact-form-section {
+    padding: 60px 20px;
+    background-color: white; /* Un color de fondo suave */
+    text-align: center;
+}
+
+.contact-form-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-form-section p {
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    color: #555;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#proyectoForm {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #444;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Importante para que el padding no afecte el ancho total */
+    font-size: 1em;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Un color de resalte al enfocar */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff; /* Color primario, ajústalo a tu web */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3; /* Un tono más oscuro para el hover */
+}
+
+.form-status-message {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+.form-status-message.success {
+    color: green;
+}
+.form-status-message.error {
+    color: red;
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .contact-form-section h2 {
+        font-size: 2em;
+    }
+    #proyectoForm {
+        padding: 20px;
+    }
+}
+
 
 /* Contact Section */
 #contact {

@@ -101,3 +101,46 @@ document.addEventListener('DOMContentLoaded', function() {
     activateMenuLink(); // Llamar una vez al cargar para la sección inicial
 
 });
+
+
+// ========= SCRIPT FORMULARIO DE CONTACTO (CON AJAX PARA FORMSPREE) =========
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('proyectoForm');
+    const statusMessage = document.getElementById('form-status');
+
+    if (form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el envío tradicional
+
+            const formData = new FormData(form);
+            statusMessage.textContent = 'Enviando...';
+            statusMessage.className = 'form-status-message'; // Reset class
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    statusMessage.textContent = '¡Gracias! Tu consulta ha sido enviada con éxito.';
+                    statusMessage.classList.add('success');
+                    form.reset(); // Limpiar el formulario
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            statusMessage.textContent = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            statusMessage.textContent = 'Oops! Hubo un problema al enviar tu consulta. Intenta de nuevo.';
+                        }
+                        statusMessage.classList.add('error');
+                    })
+                }
+            }).catch(error => {
+                statusMessage.textContent = 'Oops! Hubo un problema de red al enviar tu consulta. Intenta de nuevo.';
+                statusMessage.classList.add('error');
+            });
+        });
+    }
+});
