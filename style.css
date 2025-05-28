@@ -299,7 +299,7 @@ section h2 {
     color: var(--primary-color);
 }
 
-/* About Us */
+/* About Us 
 #about-us{
     background-image: url(./Diseño\ sin\ título\ \(19\).png);
     background-position: center;
@@ -340,6 +340,126 @@ section h2 {
     color: var(--light-text-color);
     font-size: 0.95em;
 }
+*/
+/* Asegúrate de que estos estilos se carguen después de tus estilos base
+   o tengan suficiente especificidad para sobrescribir si es necesario. */
+
+#about-us .team-grid {
+    display: flex;
+    flex-direction: row; /* Ajusta el tamaño base */
+    gap: 100px; /* Más espacio si las cajas son circulares */
+    margin-top: 40px;
+    justify-content: center;
+}
+
+#about-us .team-member {
+    /* Hacemos la caja cuadrada */
+    width: 200px;  /* O el tamaño que desees para el círculo */
+    height: 200px; /* Mismo valor que width para un círculo perfecto */
+    /* Alternativa responsive para hacerlo cuadrado: */
+    /* aspect-ratio: 1 / 1; */
+    /* max-width: 200px; /* Si usas aspect-ratio, define un max-width */
+
+    border-radius: 50%; /* ¡ESTO CREA EL CÍRCULO! */
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden; /* Importante para que el fondo no se salga del círculo */
+    
+    background-size: cover;
+    background-position: center center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra sutil */
+}
+
+#about-us .team-member:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(28, 28, 28, 0.15);
+}
+
+/* Imágenes de fondo y overlay (sin cambios aquí) */
+#about-us .team-member-matias-g {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), /* Puedes ajustar la opacidad */
+        url('URL_DE_TU_FOTO_MATIAS_GALINDEZ.jpg');
+}
+
+#about-us .team-member-matias-a {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)),
+        url('URL_DE_TU_FOTO_MATIAS_ARGUELLO.jpg');
+}
+
+#about-us .team-member h3 {
+    color: #ffffff;
+    font-size: 1.5em; /* Ajusta según el tamaño del círculo */
+    font-weight: bold;
+    margin: 0;
+    padding: 0 10px; /* Para que el texto no toque los bordes si es largo */
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Resto de los estilos de #about-us ... */
+
+#about-us .team-member:hover {
+    transform: translateY(-5px);
+}
+
+/* Reemplaza 'URL_DE_TU_FOTO_MATIAS_GALINDEZ.jpg' con la ruta real a la imagen */
+#about-us .team-member-matias-g {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+        url('./Sin\ título\ \(Post\ de\ Instagram\ \(45\)\).png');
+}
+
+/* Reemplaza 'URL_DE_TU_FOTO_MATIAS_ARGUELLO.jpg' con la ruta real a la imagen */
+#about-us .team-member-matias-a {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+        url('./Sin\ título\ \(Post\ de\ Instagram\ \(45\)\).png');
+}
+
+#about-us .team-member h3 {
+    color: #ffffff;
+    /* Podrías reducir un poco el tamaño de la fuente si las cajas son mucho más pequeñas */
+    /* font-size: 1.8em; */
+    font-size: 1.6em; /* Ligeramente más pequeño */
+    font-weight: bold;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* --- Estilos de la sección que ya tenías (los mantengo para contexto) --- */
+#about-us .team-intro {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+
+#about-us .container-about {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+#about-us h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
 
 
 /* Pricing */
