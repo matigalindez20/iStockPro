@@ -870,3 +870,16 @@ header nav a.active::after { /* Opcional: línea debajo del activo */
     transform: translateY(0);
 }
 
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .sequential-title {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .sequential-title {
+        font-size: 1.6em;
+    }
+}
+
