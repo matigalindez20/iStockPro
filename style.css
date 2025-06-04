@@ -930,8 +930,8 @@ header nav a.active::after { /* Opcional: línea debajo del activo */
 
 .frase-animada-container {
   /* --- Estilos Base (Escritorio) --- */
-  font-size: 2.5rem; /* Tamaño de fuente para escritorio */
-  font-weight: normal;
+  font-size: 3rem; /* Tamaño de fuente para escritorio */
+  font-weight: bold;
   color: rgb(209, 204, 204);
 
   display: inline-block; /* <<--- VOLVEMOS A INLINE-BLOCK */
