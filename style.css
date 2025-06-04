@@ -928,7 +928,6 @@ header nav a.active::after { /* Opcional: línea debajo del activo */
 
 /*Probando animacion del titulo*/
 
-
 .frase-animada-container {
   /* --- Estilos Base (Escritorio) --- */
   font-size: 2.5rem; /* Tamaño de fuente para escritorio */
@@ -978,7 +977,7 @@ header nav a.active::after { /* Opcional: línea debajo del activo */
 
 @media (max-width: 480px) {
   .frase-animada-container {
-    font-size: 1.4rem; /* MUY IMPORTANTE reducir font-size si es nowrap */
+    font-size: 1.2rem; /* MUY IMPORTANTE reducir font-size si es nowrap */
                        /* Quizás necesites ser aún más agresivo aquí */
   }
 }
