@@ -148,23 +148,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const titleElement = document.querySelector('.sequential-title');
-    if (!titleElement) return; // Salir si el elemento no existe
+    if (!titleElement) return;
 
-    const text = titleElement.textContent.trim(); // Obtener el texto y quitar espacios extra
-    titleElement.textContent = ''; // Limpiar el contenido original
+    const originalText = titleElement.textContent.trim(); // Guardar el texto original
+    titleElement.textContent = ''; // Limpiar para la animación
 
-    const chars = text.split('');
+    const chars = originalText.split(''); // Usar el texto original guardado
     let currentDelay = 0;
-    const letterRevealDelay = 30; // Milisegundos entre la aparición de cada letra (ajusta para velocidad)
+    const letterRevealDelay = 30; // Mantienes la velocidad de aparición
 
-    chars.forEach((char, index) => {
+    chars.forEach((char) => {
         const span = document.createElement('span');
-        // Si es un espacio, usar un espacio no rompible para que ocupe su lugar visualmente
-        span.innerHTML = (char === ' ') ? ' ' : char; 
         
+        // Si el carácter es un espacio, usa un "non-breaking space"
+        // para asegurar que el span del espacio tenga contenido y ocupe lugar.
+        // Si no es un espacio, usa el carácter tal cual.
+        span.innerHTML = (char === ' ') ? ' ' : char; 
+
+        // Ya no necesitas el bloque if (char === ' ') para estilizar el espacio,
+        // porque el span con   y display: inline-block se comportará bien.
+
         titleElement.appendChild(span);
 
-        // Añadir la clase 'visible' con un retraso secuencial
         setTimeout(() => {
             span.classList.add('visible');
         }, currentDelay);
@@ -172,3 +177,4 @@ document.addEventListener('DOMContentLoaded', () => {
         currentDelay += letterRevealDelay;
     });
 });
+
