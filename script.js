@@ -144,3 +144,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const titleElement = document.querySelector('.sequential-title');
+    if (!titleElement) return; // Salir si el elemento no existe
+
+    const text = titleElement.textContent.trim(); // Obtener el texto y quitar espacios extra
+    titleElement.textContent = ''; // Limpiar el contenido original
+
+    const chars = text.split('');
+    let currentDelay = 0;
+    const letterRevealDelay = 40; // Milisegundos entre la aparición de cada letra (ajusta para velocidad)
+
+    chars.forEach((char, index) => {
+        const span = document.createElement('span');
+        // Si es un espacio, usar un espacio no rompible para que ocupe su lugar visualmente
+        span.innerHTML = (char === ' ') ? ' ' : char; 
+        
+        titleElement.appendChild(span);
+
+        // Añadir la clase 'visible' con un retraso secuencial
+        setTimeout(() => {
+            span.classList.add('visible');
+        }, currentDelay);
+
+        currentDelay += letterRevealDelay;
+    });
+});

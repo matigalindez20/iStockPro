@@ -467,8 +467,9 @@ section h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    margin-bottom: 30px;
-    align-items: stretch; /* Alinea tarjetas de diferente altura */
+    margin: 0 auto 30px auto; /* ← Esto centra horizontalmente */
+    width: 50%;
+    align-items: stretch;
 }
 .price-card {
     background-color: var(--card-background);
@@ -842,3 +843,30 @@ header nav a.active::after { /* Opcional: línea debajo del activo */
   width: 35px;
   height: 35px;
 }
+
+
+.sequential-title {
+    font-size: 3em; /* Ajusta el tamaño a tu gusto */
+    font-weight: 600; /* Un poco menos bold que el anterior */
+    color: #2c3e50; /* Un color azul oscuro/grisáceo elegante */
+    text-align: center;
+    letter-spacing: 1px;
+    /* El contenido será reemplazado por spans vía JS */
+}
+
+/* Estilos para cada letra (span) */
+.sequential-title span {
+    display: inline-block; /* Necesario para transformaciones y transiciones */
+    opacity: 0; /* Inicialmente invisibles */
+    transform: translateY(20px); /* Inicialmente un poco abajo */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /* Puedes añadir un pequeño delay a la transición si quieres que sea más suave
+       transition-delay: 0.1s; */
+}
+
+/* Clase que se añadirá para hacer visible cada letra */
+.sequential-title span.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
