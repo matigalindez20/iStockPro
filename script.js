@@ -155,7 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const chars = text.split('');
     let currentDelay = 0;
-    const letterRevealDelay = 40; // Milisegundos entre la aparición de cada letra (ajusta para velocidad)
+    const letterRevealDelay = 30; // Milisegundos entre la aparición de cada letra (ajusta para velocidad)
 
     chars.forEach((char, index) => {
         const span = document.createElement('span');
