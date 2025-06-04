@@ -465,12 +465,20 @@ section h2 {
 /* Pricing */
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    /* Ligeramente más flexible el minmax, especialmente para móviles más pequeños */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
-    margin: 0 auto 30px auto; /* ← Esto centra horizontalmente */
-    width: 50%;
-    align-items: stretch;
+    margin: 0 auto 30px auto; /* Esto centra el bloque del grid en la página */
+    
+    /* Ajustes para responsividad */
+    width: 90%;             /* En móviles, ocupa más ancho de pantalla */
+    max-width: 400px;       /* Un ancho máximo para una sola tarjeta en móvil/tablet pequeña */
+                            /* Esto ayuda a que no se vea demasiado ancha si es la única */
+
+    align-items: stretch;   /* Mantenlo, es bueno para igualar alturas */
+    justify-items: center;  /* ¡CLAVE! Esto centrará las tarjetas dentro de sus columnas de grid */
 }
+
 .price-card {
     background-color: var(--card-background);
     padding: 35px;
