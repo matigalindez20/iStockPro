@@ -926,33 +926,37 @@ header nav a.active::after { /* Opcional: línea debajo del activo */
 
 
 
-/*Probando*/
+/*Probando animacion del titulo*/
+
 
 .frase-animada-container {
-  font-size: 2.5rem; /* Ajusta el tamaño de la fuente según necesites */
-  font-weight: normal; /* O 'bold' si prefieres */
-  color: rgb(209, 204, 204); /* Color del texto principal */
-  /* background-color: #e9ecef; */ /* Puedes añadir un fondo al contenedor si quieres */
-  /* padding: 15px 25px; */
-  /* border-radius: 5px; */
-  display: inline-block;
-  white-space: nowrap;
-  text-align: center; /* Para centrar la frase si el contenedor es más ancho */
+  /* --- Estilos Base (Escritorio) --- */
+  font-size: 2.5rem; /* Tamaño de fuente para escritorio */
+  font-weight: normal;
+  color: rgb(209, 204, 204);
+
+  display: inline-block; /* <<--- VOLVEMOS A INLINE-BLOCK */
+  /* width: 100%; No necesario con inline-block si queremos que se ajuste al contenido */
+  /* max-width: 700px; No directamente aplicable a inline-block de la misma forma */
+  /* margin: 20px auto; El 'auto' para centrar horizontalmente no funciona con inline-block así */
+  /* text-align: center; Ya no es necesario aquí, el body se encarga o el span padre */
+  line-height: 1.4;
+  white-space: nowrap; /* <<--- AÑADIMOS ESTO DE NUEVO para que no se parta en móvil */
+                       /*     Esto significa que DEBEMOS reducir el font-size lo suficiente en móvil */
 }
 
+/* ... el resto de .parte-estatica y .palabra-dinamica como antes ... */
 .parte-estatica {
-  /* Sin estilos especiales por ahora, hereda de .frase-animada-container */
+  /* Hereda estilos */
 }
 
 .palabra-dinamica {
   display: inline-block;
   position: relative;
-  /* Ajusta min-width si es necesario, aunque "Tienda" y "Futuro" son similares en longitud */
-  min-width: 100px; /* Ejemplo, ajusta si "Tienda" o "Futuro" se cortan o causan saltos */
-  text-align: left; /* O center */
-  color: var(--primary-color); /* Un color destacado para la palabra que cambia */
-  font-weight: bold; /* Para destacar la palabra que cambia */
-
+  min-width: 100px;
+  text-align: left;
+  color: var(--primary-color);
+  font-weight: bold;
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -960,6 +964,27 @@ header nav a.active::after { /* Opcional: línea debajo del activo */
 
 .palabra-dinamica.ocultandose {
   opacity: 0;
-  transform: translateY(20px); /* Se desliza hacia abajo al salir */
-  /* O para un efecto de "rotación" hacia arriba: transform: translateY(-20px); */
+  transform: translateY(20px);
+}
+
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 768px) {
+  .frase-animada-container {
+    font-size: 1.8rem; /* Reducimos más agresivamente si white-space: nowrap está activo */
+  }
+  /* ... otros ajustes a .palabra-dinamica si son necesarios ... */
+}
+
+@media (max-width: 480px) {
+  .frase-animada-container {
+    font-size: 1.2rem; /* MUY IMPORTANTE reducir font-size si es nowrap */
+                       /* Quizás necesites ser aún más agresivo aquí */
+  }
+}
+
+@media (max-width: 360px) {
+  .frase-animada-container {
+    font-size: 1rem;
+  }
 }
