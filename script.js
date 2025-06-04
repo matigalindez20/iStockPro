@@ -146,35 +146,3 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    const titleElement = document.querySelector('.sequential-title');
-    if (!titleElement) return;
-
-    const originalText = titleElement.textContent.trim(); // Guardar el texto original
-    titleElement.textContent = ''; // Limpiar para la animación
-
-    const chars = originalText.split(''); // Usar el texto original guardado
-    let currentDelay = 0;
-    const letterRevealDelay = 30; // Mantienes la velocidad de aparición
-
-    chars.forEach((char) => {
-        const span = document.createElement('span');
-        
-        // Si el carácter es un espacio, usa un "non-breaking space"
-        // para asegurar que el span del espacio tenga contenido y ocupe lugar.
-        // Si no es un espacio, usa el carácter tal cual.
-        span.innerHTML = (char === ' ') ? ' ' : char; 
-
-        // Ya no necesitas el bloque if (char === ' ') para estilizar el espacio,
-        // porque el span con   y display: inline-block se comportará bien.
-
-        titleElement.appendChild(span);
-
-        setTimeout(() => {
-            span.classList.add('visible');
-        }, currentDelay);
-
-        currentDelay += letterRevealDelay;
-    });
-});
-
