@@ -971,20 +971,20 @@ header nav a.active::after { /* Opcional: línea debajo del activo */
 /* --- Media Queries para Responsividad --- */
 @media (max-width: 768px) {
   .frase-animada-container {
-    font-size: 2rem; /* Reducimos más agresivamente si white-space: nowrap está activo */
+    font-size: 1.8rem; /* Reducimos más agresivamente si white-space: nowrap está activo */
   }
   /* ... otros ajustes a .palabra-dinamica si son necesarios ... */
 }
 
 @media (max-width: 480px) {
   .frase-animada-container {
-    font-size: 1.8rem; /* MUY IMPORTANTE reducir font-size si es nowrap */
+    font-size: 1.4rem; /* MUY IMPORTANTE reducir font-size si es nowrap */
                        /* Quizás necesites ser aún más agresivo aquí */
   }
 }
 
 @media (max-width: 360px) {
   .frase-animada-container {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
